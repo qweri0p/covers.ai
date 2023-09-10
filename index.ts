@@ -21,6 +21,9 @@ client.on('interactionCreate', async interaction => {
         const voice = interaction.options.getString('voice', true)
         await run(link, voice, interaction)
     }
+    else  if (interaction.commandName === 'github') {
+        await interaction.reply({content: "https://github.com/qweri0p/covers.ai\nGive stars pls (:", ephemeral:true})
+    }
 });
 
 client.login(config.TOKEN)
