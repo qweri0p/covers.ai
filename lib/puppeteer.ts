@@ -1,7 +1,7 @@
 import { ChatInputCommandInteraction, CacheType } from "discord.js";
 import puppeteer from "puppeteer-core";
 
-const browser = await puppeteer.launch({headless:true, executablePath:"/usr/bin/chromium", protocolTimeout:0})
+const browser = await puppeteer.launch({headless:false, executablePath:"/usr/bin/chromium", protocolTimeout:0})
 
 export function delay(time:number) {
     return new Promise(function(resolve) { 
@@ -16,16 +16,17 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
     await page.goto("https://covers.ai/ai-song-generator")
     await delay(1000)
     await page.waitForSelector(".SongSelector-button")
-    await delay(500)
+    await delay(1000)
     await page.click(".SongSelector-button")
-    await delay(500)
+    await delay(1000)
     await page.waitForSelector(".SongSelector-upload")
-    await delay(500)
+    await delay(1000)
     const [fileInput] = await Promise.all([page.waitForFileChooser(), page.click(".SongSelector-upload")])
-    await delay(500)
+    await delay(1000)
     await fileInput.accept([`./temp/${userid}.opus`]);
-    await delay(500)
+    await delay(1000)
     await page.waitForSelector(".ArtistsDropdown-select")
+    await delay(500)
     await page.click(".ArtistsDropdown-select")
     await delay(500)
     await page.waitForSelector(`div ::-p-text(${voice})`);
@@ -42,15 +43,17 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
     await delay(500)
     await page.waitForSelector('button.CreationPage-footer-go:not([disabled])', {timeout:0});
     await page.click('button.CreationPage-footer-go:not([disabled])')
+    console.log("Started generating cover.")
     await interaction.editReply("Generating...")
 
     await page.waitForSelector("button ::-p-text(Download)", {timeout:0})
-    await delay(1000)
+    await delay(3000)
     await page.click("button ::-p-text(Download)")
-    await delay(500)
+    await delay(1000)
     await page.waitForSelector('p ::-p-text(Full Song)', {timeout:0})
-    await delay(500)
+    await delay(1000)
     await page.click('p ::-p-text(Full Song)')
+    console.log("Generating full song.")
 
     await delay(10000)
     await interaction.editReply("Almost done.")
@@ -65,4 +68,5 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
     await Bun.write(Bun.file(`./temp/${userid}.mp3`), result)
     page.close()
     await interaction.editReply("Uploading to Discord")
+    console.log("Downloaded full cover.")
 }
