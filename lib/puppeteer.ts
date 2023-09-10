@@ -1,7 +1,7 @@
 import { ChatInputCommandInteraction, CacheType } from "discord.js";
 import puppeteer from "puppeteer-core";
 
-const browser = await puppeteer.launch({headless:false, executablePath:"/usr/bin/chromium", protocolTimeout:300_000})
+const browser = await puppeteer.launch({headless:false, executablePath:"/usr/bin/chromium", protocolTimeout:0})
 
 export function delay(time:number) {
     return new Promise(function(resolve) { 

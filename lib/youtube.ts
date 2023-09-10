@@ -8,7 +8,7 @@ export async function getYoutube(link:string, userid: string) {
     await downloader
         .execPromise([link, '-x', '-o', `temp/${userid}`])
 
-        .finally(() => console.log(`Downloaded ${link} (${metadata.title}) to temp/${userid}.`));
+        .finally(() => console.log(`Downloaded ${link} (${metadata.title}) to temp/${userid}.opus`));
     
     return metadata
 }
