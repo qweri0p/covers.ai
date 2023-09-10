@@ -17,7 +17,9 @@ client.on('interactionCreate', async interaction => {
     if (!interaction.isChatInputCommand()) return;
   
     if (interaction.commandName === 'cover') {
-        await run(interaction.options.getString('youtube', true), interaction)
+        const link = interaction.options.getString('youtube', true)
+        const voice = interaction.options.getString('voice', true)
+        await run(link, voice, interaction)
     }
 });
 

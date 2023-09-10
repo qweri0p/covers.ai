@@ -6,9 +6,25 @@ const ping = new SlashCommandBuilder()
     .setName('cover')
     .setDescription("Dio sings!")
     .addStringOption(option=>
-        option.setName('youtube')
-            .setDescription("Youtube link to the music.")
-            .setRequired(true))
+      option.setName('voice')
+        .setDescription("Who should ruin the music?")
+        .setRequired(true)
+        .addChoices(
+          {name: "dio", value: "Dio Brando AI 🎮 FAYK "},
+          {name: "mario", value: "Mario (Super Mario 64) AI FAYK🎮"},
+          {name: "sonic", value: "Sonic the hedgehog AI FAYK 🦔🎮"},
+          {name: "mrbeast", value: "Mr Beast 🇺🇸▶️ AI FAYK"},
+          {name: "obama", value: "Obama 🇺🇸 AI FAYK"},
+          {name: "geert", value: "Geert Wilders AI 🇳🇱🗳️ FAYK"},
+          {name: "koopa", value: "Koopa (Super Mario) AI FAYK 🐢"}
+          )
+    )
+    .addStringOption(option=>
+      option.setName('youtube')
+        .setDescription("Youtube link to the music.")
+        .setRequired(true)
+    )
+
 const commands = [];
 
 commands.push(ping.toJSON())
