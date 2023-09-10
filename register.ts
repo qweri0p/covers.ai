@@ -18,7 +18,8 @@ const cover = new SlashCommandBuilder()
         {name: "geert", value: "Geert Wilders AI 🇳🇱🗳️ FAYK"},
         {name: "koopa", value: "Koopa (Super Mario) AI FAYK 🐢"},
         {name: "trump", value: "Trump 🇺🇸 AI FAYK"},
-        {name: "arnold", value: "Arnold Schwarzenegger 🇺🇸🇦🇹🏋🏻 AI FAYK"}
+        {name: "arnold", value: "Arnold Schwarzenegger 🇺🇸🇦🇹🏋🏻 AI FAYK"},
+        {name: "miku", value: "Hatsune Miku AI FAYK"}
         )
   )
   .addStringOption(option=>

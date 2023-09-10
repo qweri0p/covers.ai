@@ -1,7 +1,7 @@
 import { ChatInputCommandInteraction, CacheType } from "discord.js";
 import puppeteer from "puppeteer-core";
 
-const browser = await puppeteer.launch({headless:false, executablePath:"/usr/bin/chromium", protocolTimeout:0})
+const browser = await puppeteer.launch({headless:true, executablePath:"/usr/bin/chromium", protocolTimeout:0})
 
 export function delay(time:number) {
     return new Promise(function(resolve) { 
@@ -16,13 +16,13 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
     await page.goto("https://covers.ai/ai-song-generator")
     await delay(1000)
     await page.waitForSelector(".SongSelector-button")
-    await delay(1000)
+    await delay(500)
     await page.click(".SongSelector-button")
-    await delay(1000)
+    await delay(500)
     await page.waitForSelector(".SongSelector-upload")
-    await delay(1000)
+    await delay(500)
     const [fileInput] = await Promise.all([page.waitForFileChooser(), page.click(".SongSelector-upload")])
-    await delay(1000)
+    await delay(500)
     await fileInput.accept([`./temp/${userid}.opus`]);
     await delay(500)
     await page.waitForSelector(".ArtistsDropdown-select")
@@ -32,10 +32,11 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
     await page.click(`div ::-p-text(${voice})`)
     await delay(500)
     await page.waitForSelector(".Text-Input")
-    await page.type(".Text-Input", "lolman420@kanker.gov")
+    await delay(200)
+    await page.$eval('input.Text-Input', el => el.value = 'lolman420@kanker.gov');
     await delay(500)
     await page.waitForSelector(".PrivateSwitchBase-input")
-    await page.click(".PrivateSwitchBase-input")
+    await page.$eval('input.PrivaSwitchBase-input', el => el.checked = true)
     await delay(500)
     await page.waitForSelector('button.CreationPage-footer-go:not([disabled])', {timeout:0});
     await page.click('button.CreationPage-footer-go:not([disabled])')
@@ -44,9 +45,9 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
     await page.waitForSelector("button ::-p-text(Download)", {timeout:0})
     await delay(1000)
     await page.click("button ::-p-text(Download)")
-    await delay(1000)
+    await delay(500)
     await page.waitForSelector('p ::-p-text(Full Song)', {timeout:0})
-    await delay(1000)
+    await delay(500)
     await page.click('p ::-p-text(Full Song)')
 
     await delay(10000)
