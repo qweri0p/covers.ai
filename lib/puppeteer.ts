@@ -33,10 +33,12 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
     await delay(500)
     await page.waitForSelector(".Text-Input")
     await delay(200)
-    await page.$eval('input.Text-Input', el => el.value = 'lolman420@kanker.gov');
+    await page.$eval('input.Text-Input', el => el.value = '');
+    await delay(200)
+    await page.type("input.Text-Input", "lolman420@kanker.gov")
     await delay(500)
     await page.waitForSelector(".PrivateSwitchBase-input")
-    await page.$eval('input.PrivateSwitchBase-input', el => el.checked = true)
+    await page.$eval('input.PrivateSwitchBase-input', async el => {if (el.checked === false) el.click()})
     await delay(500)
     await page.waitForSelector('button.CreationPage-footer-go:not([disabled])', {timeout:0});
     await page.click('button.CreationPage-footer-go:not([disabled])')
