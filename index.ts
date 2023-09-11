@@ -13,13 +13,21 @@ client.on('ready', () => {
       
 });
 
+let on = false;
+
 client.on('interactionCreate', async interaction => {
     if (!interaction.isChatInputCommand()) return;
   
     if (interaction.commandName === 'cover') {
-        const link = interaction.options.getString('youtube', true)
-        const voice = interaction.options.getString('voice', true)
-        await run(link, voice, interaction)
+        if (on) {
+            interaction.reply("NO!\nI'M BUSY!\nLEAVE ME ALONE!\nFUCK YOU!")
+        } else {
+            on = true
+            const link = interaction.options.getString('youtube', true)
+            const voice = interaction.options.getString('voice', true)
+            await run(link, voice, interaction)
+            on = false
+        }
     }
     else  if (interaction.commandName === 'github') {
         await interaction.reply({content: "https://github.com/qweri0p/covers.ai\nGive stars pls (:", ephemeral:true})
