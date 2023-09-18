@@ -20,8 +20,9 @@ client.on('interactionCreate', async interaction => {
   
     if (interaction.commandName === 'cover') {
         if (on) {
-            interaction.reply("NO!\nI'M BUSY!\nLEAVE ME ALONE!\nFUCK YOU!")
+            await interaction.reply("NO!\nI'M BUSY!\nLEAVE ME ALONE!\nFUCK YOU!")
         } else {
+            await interaction.deferReply()
             on = true
             const link = interaction.options.getString('youtube', true)
             const voice = interaction.options.getString('voice', true)

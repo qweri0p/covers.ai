@@ -57,13 +57,9 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
 
     await delay(10000)
     await interaction.editReply("Almost done.")
-    await page.waitForSelector('.Cover-share-audio', {timeout:0})
-    const crap = await page.$$eval('source', sources => sources.map(source => source.getAttribute('src')));
-    const index = crap.indexOf("/starfield.mp4")
-    if (index > -1) { // only splice array when item is found
-        crap.splice(index, 1); // 2nd parameter means remove one item only
-    }
-    const response = await fetch(crap[0]);
+    await page.waitForSelector('source[type="audio/mpeg"]', {timeout:0})
+    const crap = await page.$eval('source[type="audio/mpeg"]', element => element.getAttribute('src'));
+    const response = await fetch(crap);
     const result = await Bun.readableStreamToBlob(response.body)
     await Bun.write(Bun.file(`./temp/${userid}.mp3`), result)
     page.close()
