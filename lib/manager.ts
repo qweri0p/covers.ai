@@ -3,7 +3,7 @@ import { getYoutube } from "./youtube";
 import { main } from './puppeteer';
 
 export async function run(link:string, voice: string, interaction: ChatInputCommandInteraction<CacheType>) {
-    await interaction.reply("Downloading music from Youtube");
+    await interaction.editReply("Downloading music from Youtube");
     // await interaction.reply("amogus")
     const metadata = await getYoutube(link, interaction.user.id);
     await interaction.editReply("Downloaded!\nNow loading covers.ai");
