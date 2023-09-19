@@ -7,7 +7,7 @@ export function delay(time:number) {
     return new Promise(function(resolve) { 
         setTimeout(resolve, time)
     });
- }
+}
 
 export async function main(userid:string, interaction: ChatInputCommandInteraction<CacheType>, voiceId: string) {
     const page = await browser.newPage()
