@@ -9,7 +9,7 @@ export function delay(time:number) {
     });
  }
 
-export async function main(userid:string, interaction: ChatInputCommandInteraction<CacheType>, voice: string) {
+export async function main(userid:string, interaction: ChatInputCommandInteraction<CacheType>, voiceId: string) {
     const page = await browser.newPage()
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36')
 
@@ -29,8 +29,8 @@ export async function main(userid:string, interaction: ChatInputCommandInteracti
     await delay(500)
     await page.click(".ArtistsDropdown-select")
     await delay(500)
-    await page.waitForSelector(`div ::-p-text(${voice})`);
-    await page.click(`div ::-p-text(${voice})`)
+    await page.waitForSelector(`div[data-artist-id='${voiceId}']`);
+    await page.click(`div[data-artist-id='${voiceId}']`)
     await delay(500)
     await page.waitForSelector(".Text-Input")
     await delay(200)

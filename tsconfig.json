@@ -19,5 +19,5 @@
       "bun-types" // add Bun global
     ]
   },
-  "include": ["*", "lib/**/*", "config.json"]
+  "include": ["*", "lib/**/*", "config.json", "lib/voices.json"]
 }

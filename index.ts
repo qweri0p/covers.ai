@@ -7,7 +7,7 @@ const client = new discord.Client({intents: ["Guilds", "GuildMessages"]})
 client.on('ready', () => {
     console.log(`Logged in as ${client.user?.tag}!`);
     client.user?.setPresence({
-        activities: [{ name: `JoJo's Bizzare Adventure`, type: discord.ActivityType.Watching }],
+        activities: [{ name: "JoJo's Bizzare Adventure", type: discord.ActivityType.Watching }],
         status: 'online',
       });
       
@@ -25,8 +25,8 @@ client.on('interactionCreate', async interaction => {
             await interaction.deferReply()
             on = true
             const link = interaction.options.getString('youtube', true)
-            const voice = interaction.options.getString('voice', true)
-            await run(link, voice, interaction)
+            const voiceIndex = interaction.options.getNumber('voice', true)
+            await run(link, voiceIndex, interaction)
             on = false
         }
     }

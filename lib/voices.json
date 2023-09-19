@@ -1,0 +1,71 @@
+[
+    {
+        "prettyName": "Dio Brando",
+        "selectorId": "3cc574de-fc99-4069-9158-16ffb1048712",
+        "command": "dio"
+    },{
+        "prettyName": "Mr. Beast",
+        "selectorId": "37c78822e30e41578f73aaff11ab0892",
+        "command": "mrbeast"
+    },
+    {
+        "prettyName": "Mario (Super Mario 64)",
+        "selectorId": "c4a86def-71b9-498e-a5ba-982972e01cc9",
+        "command": "Mario"
+    },
+    {
+        "prettyName": "Sonic the Hedgehog",
+        "selectorId": "13158535-bd18-47a2-b48e-99c5bfa1df3b",
+        "command": "sonic"
+    },
+    {
+        "prettyName": "Barack Obama",
+        "selectorId": "42220be3",
+        "command": "obama"
+    },
+    {
+        "prettyName": "Geert Wilders",
+        "selectorId": "2271def3-0377-4d06-b3e0-b86a7631104d",
+        "command": "geert"
+    },
+    {
+        "prettyName": "Koopa Troopa",
+        "selectorId": "679aca2e-fd75-455e-9098-b8118131f4b5",
+        "command": "koopa"
+    },
+    {
+        "prettyName": "Donald Trump",
+        "selectorId": "31785a80",
+        "command": "trump"
+    },
+    {
+        "prettyName": "Arnold Schwarzenegger",
+        "selectorId": "1d48e4e8-100b-4a0b-b7fc-e17ff194a5da",
+        "command": "arnold"
+    },
+    {
+        "prettyName": "Hatsune Miku",
+        "selectorId": "8e10874b-38b2-4d61-bade-7593bc23b27f",
+        "command": "miku"
+    },
+    {
+        "prettyName": "Logan Paul",
+        "selectorId": "a683e898-97bb-4731-92e4-258f6af301ff",
+        "command": "loganpaul"
+    },
+    {
+        "prettyName": "Jake Paul",
+        "selectorId": "1212b3b1-97ac-4151-9e2f-5e1c24ca1367",
+        "command": "jakepaul"
+    },
+    {
+        "prettyName": "Peppa Pig",
+        "selectorId": "befed183-175e-40db-9e9b-83b578408e91",
+        "command": "peppapig"
+    },
+    {
+        "prettyName": "Peter Griffin",
+        "selectorId": "92818235-d836-400e-8184-11913d97d873",
+        "command": "peter"
+    }
+]
