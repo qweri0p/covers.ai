@@ -30,16 +30,16 @@ client.on('interactionCreate', async interaction => {
             on = false
         }
     }
-    else  if (interaction.commandName === 'github') {
+    else if (interaction.commandName === 'github') {
         await interaction.reply({content: "https://github.com/qweri0p/covers.ai\nGive stars pls (:", ephemeral:true})
     }
     else if (interaction.commandName === 'naughty') {
         if (on) {
-            await interaction.reply("i'm a naughty bitch (:")
+            await interaction.reply("i'm a naughty cumslut (:")
             const qweriop = await client.users.fetch("354943770464354306")
-            await qweriop.send("I've been a naughty bitch. Pls fix me.\nI was called naughty by"+interaction.user.username)
+            await qweriop.send("I've been a naughty bitch. Pls fix me.\nI was called naughty by "+interaction.user.username)
         } else {
-            await interaction.reply("UR THE FUCKING BITCH HERE YOU IDIOT!!!")
+            await interaction.reply("UR THE FUCKING BITCH YOU IDIOT!!!")
         }
     }
 });
