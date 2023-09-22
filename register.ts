@@ -10,7 +10,7 @@ function choicesObjectBuilder(voices:voice[]) {
         value: voices.indexOf(element)
         })
     });
-  return result
+    return result
 }
 
 const cover = new SlashCommandBuilder()
@@ -32,10 +32,15 @@ const github = new SlashCommandBuilder()
     .setName("github")
     .setDescription("Sends a link to the source code.")
 
-let commands = []
+const naughty = new SlashCommandBuilder()
+    .setName("naughty")
+    .setDescription("The bot isn't working AGAIN WHAT A FUCKING BITCH!")
+
+const commands = []
 
 commands.push(cover.toJSON())
 commands.push(github.toJSON())
+commands.push(naughty.toJSON())
 
 const rest = new REST({ version: '10' }).setToken(config.TOKEN);
 
