@@ -1,3 +1,7 @@
+# IT'S SUPER BROKEN!!!!
+# COVERS.AI IS A PIECE OF SHIT, DON'T USE IT!!!
+
+
 # covers-ai-discord
 
 To install dependencies:
